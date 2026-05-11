@@ -186,7 +186,7 @@ python manage.py runserver
 
 ## API Endpoints
 
-# POST api/ask/
+### POST api/ask/
 Grounded RAG response with citations.
 
 Example request:
@@ -198,7 +198,7 @@ Example request:
 }
 ```
 
-# POST api/agent/
+### POST api/agent/
 Multi-agent orchestration endpoint with execution trace.
 
 Example request:
@@ -212,7 +212,7 @@ Example request:
 
 ```
 
-# GET /api/metrics/
+### GET /api/metrics/
 Returns runtime metrics.
 
 Example response:
@@ -242,7 +242,7 @@ The system includes safety tests for:
 Unsafe requests are blocked by the Safety Agent.
 
 ## Key Design Decisions
-# Hybrid Retrieval
+### Hybrid Retrieval
 
 Combines:
 - semantic similarity
