@@ -20,13 +20,17 @@ LLMOps and security practices
 ## Features
 ### RAG Core
 Hybrid retrieval:
+```
     - Vector search (pgvector embeddings)
     - BM25 lexical retrieval
+```
 Metadata filtering:
+```
     - tenant_id
     - allowed_roles
     - doc_type
     - effective_date
+```
 Citation-backed grounded responses
 Hallucination resistance
 
