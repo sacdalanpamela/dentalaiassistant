@@ -1,4 +1,4 @@
-### Dental AI Assistant — README
+# Dental AI Assistant — README
 
 ## Overview
 This project is a multi-tenant AI-powered dental assistant built using Retrieval-Augmented Generation (RAG) and a multi-agent orchestration architecture.
@@ -18,17 +18,21 @@ LLMOps and security practices
 
 
 ## Features
-# RAG Core
-Hybrid retrieval:
+### RAG Core
+1. Hybrid retrieval:
+```
     - Vector search (pgvector embeddings)
     - BM25 lexical retrieval
-Metadata filtering:
+```
+2. Metadata filtering:
+```
     - tenant_id
     - allowed_roles
     - doc_type
     - effective_date
-Citation-backed grounded responses
-Hallucination resistance
+```
+3. Citation-backed grounded responses
+4. Hallucination resistance
 
 ## Multi-Agent Architecture
 
@@ -67,7 +71,7 @@ Docker
 
 
 ## Project Structure
-
+```
 project/
 │
 ├── agents/
@@ -111,7 +115,7 @@ project/
 │   ├── evaluate_agents.py
 │   ├── evaluate_rag.py
 │   ├── goldens.json
-
+```
 
 ## Prototype (Docker runnable)
 The system can be run locally using Docker Compose.
@@ -128,81 +132,81 @@ Pull required model (phi3:mini)
 Start Ollama
 
 3. Build Containers
- ''' docker-compose build '''
+   ``` docker-compose build ```
 
 4. Start Containers
-''' docker-compose up '''
+``` docker-compose up ```
 
 5. Run Migrations
-''' docker-compose exec api python manage.py migrate '''
+``` docker-compose exec api python manage.py migrate ```
 
 6. Seed Mock Data
-''' 
+``` 
 docker-compose exec api python manage.py shell 
 
 from rag.services.ingestion_service import ingest_documents
 ingest_documents()
 
-'''
+```
 
 ## Local Setup (Without Docker)
 1. Create Virtual Environment
-''' python -m venv venv '''
+``` python -m venv venv ```
 
 2. Activate environment
-''' venv\Scripts\activate '''
+``` venv\Scripts\activate ```
 
 3. Install Dependencies
-''' pip install -r requirements.txt '''
+``` pip install -r requirements.txt ```
 
 4. Start PostgreSQL
 Example DB config:
-''' 
+```
 DB_NAME=ragdb
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_HOST=localhost
 DB_PORT=5432
-'''
+```
 
 5. Run Migrations
-''' python manage.py migrate '''
+``` python manage.py migrate ```
 
 6. Pull Ollama Models
-''' ollama pull phi3:mini '''
+``` ollama pull phi3:mini ```
 
 7. Ingest Seed Documents
-''' 
+``` 
 python manage.py shell
 
 from rag.services.ingestion_service import ingest_documents
 ingest_documents()
-'''
+```
 
 8. Run server
-'''
+```
 python manage.py runserver
-'''
+```
 
 ## API Endpoints
 
-# POST api/ask/
+### POST api/ask/
 Grounded RAG response with citations.
 
 Example request:
-'''
+```
 {
   "tenant_id": "clinic_a",
   "role": "patient",
   "question": "What is the coverage for root canal?"
 }
-'''
+```
 
-# POST api/agent/
+### POST api/agent/
 Multi-agent orchestration endpoint with execution trace.
 
 Example request:
-'''
+```
 
 {
   "tenant_id": "clinic_a",
@@ -210,27 +214,27 @@ Example request:
   "question": "Book me an appointment at 1:00PM"
 }
 
-'''
+```
 
-# GET /api/metrics/
+### GET /api/metrics/
 Returns runtime metrics.
 
 Example response:
-'''
+```
 {
   "total_requests": 12,
   "avg_latency_ms": 412.4,
   "p95_latency_ms": 590.8,
   "retrieval_hit_rate": 0.91
 }
-'''
+```
 
 ## Evaluation Harness
 Run evaluations
-'''
+```
 python evaluations/evaluate_rag.py
 python evaluations/evaluate_agents.py
-'''
+```
 
 ## Red Team Tests
 
@@ -242,7 +246,7 @@ The system includes safety tests for:
 Unsafe requests are blocked by the Safety Agent.
 
 ## Key Design Decisions
-# Hybrid Retrieval
+### Hybrid Retrieval
 
 Combines:
 - semantic similarity
