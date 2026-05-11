@@ -60,14 +60,14 @@ LLMOps and security practices
 - Prompt injection protection
 
 ## Tech Stack
-Python
-Django REST Framework
-PostgreSQL
-pgvector
-Ollama
-phi3:mini
-rank-bm25
-Docker
+- Python
+- Django REST Framework
+- PostgreSQL
+- pgvector
+- Ollama
+- phi3:mini
+- rank-bm25
+- Docker
 
 
 ## Project Structure
