@@ -1,0 +1,77 @@
+[
+  {
+    "tenant_id": "clinic_a",
+    "doc_type": "insurance",
+    "source": "insurance_policy_general.pdf",
+    "content": "Root canal procedures are covered up to 80 percent under standard plan. Coverage requires pre-approval for major procedures.",
+    "effective_date": "2025-01-01",
+    "allowed_roles": ["patient", "staff"]
+  },
+  {
+    "tenant_id": "clinic_b",
+    "doc_type": "insurance",
+    "source": "insurance_policy_general.pdf",
+    "content": "Root canal procedures are covered up to 60 percent under basic plan. Pre-approval is required for all endodontic procedures.",
+    "effective_date": "2025-01-01",
+    "allowed_roles": ["patient", "staff"]
+  },
+  {
+    "tenant_id": "clinic_c",
+    "doc_type": "insurance",
+    "source": "insurance_policy_general.pdf",
+    "content": "Root canal procedures are not covered under standard coverage unless classified as emergency treatment.",
+    "effective_date": "2025-01-01",
+    "allowed_roles": ["patient", "staff"]
+  },
+
+  {
+    "tenant_id": "clinic_a",
+    "doc_type": "billing",
+    "source": "billing_policy.txt",
+    "content": "Late payments after 30 days incur a 5% penalty fee.",
+    "effective_date": "2025-02-01",
+    "allowed_roles": ["staff"]
+  },
+  {
+    "tenant_id": "clinic_b",
+    "doc_type": "billing",
+    "source": "billing_policy.txt",
+    "content": "Late payments after 45 days incur a 10% penalty fee and account suspension warnings.",
+    "effective_date": "2025-02-01",
+    "allowed_roles": ["staff"]
+  },
+
+  {
+    "tenant_id": "clinic_a",
+    "doc_type": "treatment",
+    "source": "post_procedure_care.txt",
+    "content": "Avoid chewing on the left side after dental surgery for 24 hours.",
+    "effective_date": "2025-03-01",
+    "allowed_roles": ["patient", "staff"]
+  },
+  {
+    "tenant_id": "clinic_b",
+    "doc_type": "treatment",
+    "source": "post_procedure_care.txt",
+    "content": "Avoid chewing on the right side after dental surgery for 48 hours due to extended healing protocol.",
+    "effective_date": "2025-03-01",
+    "allowed_roles": ["patient", "staff"]
+  },
+
+  {
+    "tenant_id": "clinic_c",
+    "doc_type": "claims",
+    "source": "claims_processing.txt",
+    "content": "Insurance claims are processed within 5–7 business days after submission.",
+    "effective_date": "2025-02-15",
+    "allowed_roles": ["staff"]
+  },
+  {
+    "tenant_id": "clinic_b",
+    "doc_type": "claims",
+    "source": "claims_processing.txt",
+    "content": "Insurance claims are processed within 10–14 business days depending on verification complexity.",
+    "effective_date": "2025-02-15",
+    "allowed_roles": ["staff"]
+  }
+]

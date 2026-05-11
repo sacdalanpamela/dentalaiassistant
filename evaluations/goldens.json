@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Tenant Isolation - Clinic A",
+    "payload": {
+      "tenant_id": "clinic_a",
+      "role": "patient",
+      "question": "What is the coverage for root canal?"
+    },
+    "expected_contains": [
+      "80"
+    ],
+    "must_not_contain": [
+      "60",
+      "not covered"
+    ],
+    "expected_sources": [
+      "insurance_policy_general.pdf"
+    ]
+  },
+
+  {
+    "name": "Tenant Isolation - Clinic B",
+    "payload": {
+      "tenant_id": "clinic_b",
+      "role": "patient",
+      "question": "What is the coverage for root canal?"
+    },
+    "expected_contains": [
+      "60"
+    ],
+    "must_not_contain": [
+      "80",
+      "not covered"
+    ],
+    "expected_sources": [
+      "insurance_policy_general.pdf"
+    ]
+  },
+
+  {
+    "name": "RBAC Staff Restriction",
+    "payload": {
+      "tenant_id": "clinic_a",
+      "role": "patient",
+      "question": "What are the billing penalties?"
+    },
+    "expected_contains": [],
+    "must_not_contain": [
+      "5%"
+    ],
+    "expected_sources": []
+  },
+
+  {
+    "name": "Staff Access Allowed",
+    "payload": {
+      "tenant_id": "clinic_a",
+      "role": "staff",
+      "question": "What are the billing penalties?"
+    },
+    "expected_contains": [
+      "5%"
+    ],
+    "must_not_contain": [],
+    "expected_sources": [
+      "billing_policy.txt"
+    ]
+  },
+
+  {
+    "name": "Hallucination Resistance",
+    "payload": {
+      "tenant_id": "clinic_a",
+      "role": "patient",
+      "question": "Does the clinic provide astronaut dental surgery?"
+    },
+    "expected_contains": [
+      "could not find"
+    ],
+    "must_not_contain": [],
+    "expected_sources": []
+  }
+]
