@@ -138,11 +138,11 @@ Start Ollama
 ``` docker-compose up ```
 
 5. Run Migrations
-``` docker-compose exec api python manage.py migrate ```
+``` docker-compose exec web python manage.py migrate ```
 
 6. Seed Mock Data
 ``` 
-docker-compose exec api python manage.py shell 
+docker-compose exec web python manage.py shell 
 
 from rag.services.ingestion_service import ingest_documents
 ingest_documents()
